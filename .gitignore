@@ -1,8 +1,0 @@
-# Dependency directory
-node_modules
-
-# Ignore screenshots folder
-errorShots
-
-#Ignore test logs folder
-testLogs
