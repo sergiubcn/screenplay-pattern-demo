@@ -1,0 +1,14 @@
+{
+  "devDependencies": {
+    "babel-register": "^6.26.0",
+    "cucumber": "^5.0.2",
+    "selenium-standalone": "^6.15.3",
+    "wdio-selenium-standalone-service": "0.0.10",
+    "wdio-spec-reporter": "^0.1.5",
+    "webdriverio": "^4.13.2"
+  },
+  "scripts": {
+    "test:ui": "wdio wdio.conf.js"
+  },
+  "dependencies": {}
+}
