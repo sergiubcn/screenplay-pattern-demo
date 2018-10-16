@@ -1,3 +1,5 @@
-module.exports = function page(path) {
-    browser.url(path);
-} 
+module.exports = { 
+    accessPage: function(path) {
+        browser.url(path);
+    }
+}

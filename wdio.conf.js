@@ -158,7 +158,9 @@ exports.config = {
     }, */
 
     cucumberOpts: {
-        require: [],        // <string[]> (file/dir) require files before executing features
+        require: [
+            './stepDefinitions/given.js'
+        ],        // <string[]> (file/dir) require files before executing features
         backtrace: false,   // <boolean> show full backtrace for errors
         compiler: [],       // <string[]> ("extension:module") require files with the given EXTENSION after requiring MODULE (repeatable)
         dryRun: false,      // <boolean> invoke formatters without executing steps
