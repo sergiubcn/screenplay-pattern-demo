@@ -1,9 +1,9 @@
-const {Given} = require('cucumber');
+const { Given } = require('cucumber');
 const page = require('../pageObjects/page');
 const loginPage = require('../pageObjects/loginPage');
-const {adminAbilities, subscriberAbilities} = require('../actorInteractions/abilities');
+const { adminAbilities, subscriberAbilities } = require('../actorInteractions/abilities');
 
-Given(/^that (an admin|a subscriber) user logs into WP-Admin$/, (userAccount) => {
+Given(/^(an admin|a subscriber) user logs into WP-Admin$/, (userAccount) => {
     if (userAccount === 'an admin') {
         adminAbilities.login();
     } else if (userAccount === 'a subscriber') {
@@ -13,6 +13,6 @@ Given(/^that (an admin|a subscriber) user logs into WP-Admin$/, (userAccount) =>
     }
 });
 
-Given(/^that the login page is loaded$/, () => {
+Given(/^the login page is loaded$/, () => {
     page.accessPage(loginPage.path());
 });

@@ -4,10 +4,10 @@ Feature: Access to Posts page
      So that I can manage my Posts
 
 Background: The login page is loaded
-    Given that the login page is loaded
+    Given the login page is loaded
 
 Scenario: Admin user can access the Posts page
-     Given that an admin user logs into WP-Admin
+     Given an admin user logs into WP-Admin
      When the user clicks the Posts link in the nav menu
      Then the Posts page is displayed
 

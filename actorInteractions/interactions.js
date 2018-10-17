@@ -1,4 +1,5 @@
-const {usernameField, passwordField, loginButton} = require('../pageObjects/loginPage');
+const { usernameField, passwordField, loginButton } = require('../pageObjects/loginPage');
+const { postsLink } = require('../pageObjects/sideNav');
 
 /**
  * Possible interactions with the applications.
@@ -14,5 +15,10 @@ module.exports = {
         usernameField().setValue(username);
         passwordField().setValue(password);
         loginButton().click();
+    },
+
+    /*** Navigates to the Posts page by clicking the Posts link in the sideNav.*/
+    navigateToPostsPageViaSideNav: function() {
+        postsLink().click();
     }
 }
