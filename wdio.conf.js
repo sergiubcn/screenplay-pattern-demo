@@ -160,7 +160,8 @@ exports.config = {
     cucumberOpts: {
         require: [
             './stepDefinitions/given.js',
-            './stepDefinitions/when.js'
+            './stepDefinitions/when.js',
+            './stepDefinitions/then.js'
         ],        // <string[]> (file/dir) require files before executing features
         backtrace: false,   // <boolean> show full backtrace for errors
         compiler: [],       // <string[]> ("extension:module") require files with the given EXTENSION after requiring MODULE (repeatable)
