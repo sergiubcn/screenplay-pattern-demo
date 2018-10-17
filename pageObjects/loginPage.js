@@ -3,6 +3,10 @@ module.exports = {
         return "wp-login.php";
     },
 
+    loginForm: function() {
+        return browser.element("#loginform");
+    },
+
     usernameField: function() {
         return browser.element("#user_login");
     },

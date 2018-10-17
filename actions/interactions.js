@@ -1,4 +1,4 @@
-const { usernameField, passwordField, loginButton } = require('../pageObjects/loginPage');
+const { usernameField, passwordField, loginButton, loginForm } = require('../pageObjects/loginPage');
 const { postsLink } = require('../pageObjects/sideNav');
 
 /**
@@ -12,6 +12,9 @@ module.exports = {
      * @param {string} password The user's account password.
      */
     logIntoAccount: function(username, password) {
+        // This dynamic wait is necessary when running multiple tests
+        // one after the other.
+        loginForm().waitForVisible();
         usernameField().setValue(username);
         passwordField().setValue(password);
         loginButton().click();
