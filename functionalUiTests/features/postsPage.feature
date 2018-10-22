@@ -7,10 +7,10 @@ Background: The login page is loaded
     Given the login page is loaded
 
 Scenario: Admin user can access the Posts page
-     Given an admin user logs into WP-Admin
+     Given scrplayusr user with admin role authenticates into WP-Admin
      When the user clicks the Posts link in the nav menu
      Then the Posts page is displayed
 
 Scenario: Subscriber user cannot access the Posts page
-    Given a subscriber user logs into WP-Admin
+    Given scrplayusrbasic user with subscriber role authenticates into WP-Admin
     Then the Posts link is not available

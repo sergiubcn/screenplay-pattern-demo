@@ -1,6 +1,5 @@
-const { When } = require('cucumber');
-const { adminAbilities } = require('../actions/abilities');
+import { When } from 'cucumber';
 
 When(/^the user clicks the Posts link in the nav menu$/, () => {
-    adminAbilities.clickPostsLinkInSideNav();
+    browser.params.scenarioContext.currentUser.navigateToPostsPageViaSideNav();
 });

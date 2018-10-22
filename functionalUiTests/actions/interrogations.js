@@ -1,18 +1,16 @@
-const expect = require('expect');
-const { postsPageTitle } = require('../pageObjects/postsPage');
-const { sideNavContainer, postsLink } = require('../pageObjects/sideNav');
+import postsPageTitle  from '../pageObjects/postsPage';
+import sideNav from '../pageObjects/sideNav';
 
-/** Represents the possible interrogations about the application's state. */
-module.exports = {
-    checkThatPostsPageTitleExists: function() {
-        expect(postsPageTitle().value).toBeTruthy();
+export default {
+    checkExistenceOfPostsPageTitle() {
+        return postsPageTitle().isExisting();
     },
 
-    checkThatThePostsLinkDoesNotExistInSideNav: function() {
-        expect(postsLink().value).toBeFalsy();
+    checkExistenceOfPostsLinkInSideNav() {
+        return sideNav.postsLink().isExisting();
     },
 
-    checkThatTheSideNavMenuIsLoaded: function() {
-        expect(sideNavContainer().value).toBeTruthy();
+    checkExistenceOfSideNavMenu() {
+        return sideNav.sideNavContainer().isExisting();
     }
 }

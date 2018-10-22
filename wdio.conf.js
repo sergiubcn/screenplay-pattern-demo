@@ -164,7 +164,7 @@ exports.config = {
             './functionalUiTests/stepDefinitions/then.js'
         ],        // <string[]> (file/dir) require files before executing features
         backtrace: false,   // <boolean> show full backtrace for errors
-        compiler: [],       // <string[]> ("extension:module") require files with the given EXTENSION after requiring MODULE (repeatable)
+        compiler: [],      // <string[]> ("extension:module") require files with the given EXTENSION after requiring MODULE (repeatable)
         dryRun: false,      // <boolean> invoke formatters without executing steps
         failFast: false,    // <boolean> abort the run on first failure
         format: ['pretty'], // <string[]> (type[:path]) specify the output format, optionally supply PATH to redirect formatter output (repeatable)
@@ -200,17 +200,19 @@ exports.config = {
      * @param {Array.<Object>} capabilities list of capabilities details
      * @param {Array.<String>} specs List of spec file paths that are to be run
      */
-    // beforeSession: function (config, capabilities, specs) {
-    // },
+    beforeSession: function (config, capabilities, specs) {
+        require('babel-register')({
+            presets: [ 'env' ]
+        })
+    },
     /**
      * Gets executed before test execution begins. At this point you can access to all global
      * variables like `browser`. It is the perfect place to define custom commands.
      * @param {Array.<Object>} capabilities list of capabilities details
      * @param {Array.<String>} specs List of spec file paths that are to be run
      */
-    before: function () {
-        require('babel-register');
-    },
+    //before: function () {
+    //},
     /**
      * Runs before a WebdriverIO command gets executed.
      * @param {String} commandName hook command name
@@ -218,7 +220,6 @@ exports.config = {
      */
     // beforeCommand: function (commandName, args) {
     // },
-
     /**
      * Hook that gets executed before the suite starts
      * @param {Object} suite suite details
@@ -255,7 +256,6 @@ exports.config = {
      */
     // afterSuite: function (suite) {
     // },
-
     /**
      * Runs after a WebdriverIO command gets executed
      * @param {String} commandName hook command name
@@ -288,11 +288,12 @@ exports.config = {
      * @param {Object} config wdio configuration object
      * @param {Array.<Object>} capabilities list of capabilities details
      */
-    onComplete: function() {
-        // prevent node from displaying a error message when there's a failing test
-        // process.exit(0);
+    // onComplete: function() {
+    // },
+
+    params: {
+        scenarioContext:{
+            currentUser:{}
+        }
     }
 }
-
-// Transpile Selenium scripts using Babel into ES6 running on Node.js.
-// require("@babel/register");

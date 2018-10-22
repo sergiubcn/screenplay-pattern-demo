@@ -1,21 +1,11 @@
-module.exports = {
-    path: function() {
-        return "wp-login.php";
-    },
+export default {
+    path() { return "wp-login.php"; },
 
-    loginForm: function() {
-        return browser.element("#loginform");
-    },
+    loginForm() { return browser.element("#loginform"); },
 
-    usernameField: function() {
-        return browser.element("#user_login");
-    },
+    usernameField() { return browser.element("#user_login"); },
 
-    passwordField:  function() {
-        return browser.element("#user_pass");
-    },
+    passwordField() { return browser.element("#user_pass"); },
 
-    loginButton: function() {
-        return browser.element("#wp-submit");
-    }
+    loginButton() { return browser.element("#wp-submit"); }
 }

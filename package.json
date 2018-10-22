@@ -4,6 +4,7 @@
     "babel-register": "^6.26.0",
     "cucumber": "^5.0.2",
     "expect": "^23.6.0",
+    "lodash": "^4.17.11",
     "selenium-standalone": "^6.15.3",
     "wdio-cucumber-framework": "^2.2.7",
     "wdio-jasmine-framework": "^0.3.6",

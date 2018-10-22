@@ -4,5 +4,5 @@ node_modules
 # Ignore screenshots folder
 errorShots
 
-#Ignore test logs folder
+# Ignore test logs folder
 testLogs

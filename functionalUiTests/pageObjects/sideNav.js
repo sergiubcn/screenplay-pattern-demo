@@ -1,9 +1,5 @@
-module.exports = {
-    sideNavContainer: function() {
-        return browser.element("#adminmenu");
-    },
+export default {
+    sideNavContainer() { return browser.element("#adminmenu"); },
 
-    postsLink: function() {
-        return browser.element("//ul[@id='adminmenu']//div[text()='Posts']");
-    }
+    postsLink() { return browser.element("//ul[@id='adminmenu']//div[text()='Posts']"); }
 }

@@ -1,21 +1,27 @@
-const { Given } = require('cucumber');
-const page = require('../pageObjects/page');
-const loginPage = require('../pageObjects/loginPage');
-const { adminAbilities, subscriberAbilities } = require('../actions/abilities');
-const { checkThatTheSideNavMenuIsLoaded } = require('../actions/interrogations');
+import expect from 'expect';
+import { Given } from 'cucumber';
+import loginPage from '../pageObjects/loginPage';
+import accessPage from '../pageObjects/page';
+import interrogations from '../actions/interrogations';
+import Admin from '../actors/admin';
+import Subscriber from '../actors/subscriber';
 
-Given(/^(an admin|a subscriber) user logs into WP-Admin$/, (userAccount) => {
-    if (userAccount === 'an admin') {
-        adminAbilities.login();
-    } else if (userAccount === 'a subscriber') {
-        subscriberAbilities.login();
+Given(/^(.*) user with (admin|subscriber) role authenticates into WP-Admin$/, (username, role) => {
+    let user;
+    if (role === 'admin') {
+        let user = new Admin(username);
+        user.login();
+    } else if (role === 'subscriber') {
+        let user = new Subscriber(username);
+        user.login();
     } else {
         throw new Error("The user role does not exist.");
     }
+    browser.params.scenarioContext.currentUser = user;
     // A check that the login action has actually happened is needed here.
-    checkThatTheSideNavMenuIsLoaded();
+    expect(interrogations.checkExistenceOfSideNavMenu()).toBeTruthy();
 });
 
 Given(/^the login page is loaded$/, () => {
-    page.accessPage(loginPage.path());
+    accessPage(loginPage.path());
 });
