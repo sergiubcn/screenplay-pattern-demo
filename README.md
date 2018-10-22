@@ -20,10 +20,10 @@ I assume that you already have your favourite IDE installed so the next step wou
 The next step would be to install Chrome browser if its not already installed. Chromedriver is also necessary. This can easily be done with brew: `brew install chromedriver`.
 
 In order to simulate a real life scenario the users's passwords have been added to environment variables. In the `.bash_profile` file add the passwords as variables like in the example below:
-`# SCREENPLAY PATTERN DEMO
+```# SCREENPLAY PATTERN DEMO
 export WP_ADMIN_PASS="7RMgdkw2&7DW@gTkiP"
 export WP_BASICUSER_PASS="basicUser123"
-export BASE_URL="http://localhost:8888/"`
+export BASE_URL="http://localhost:8888/"```
 
 In a similar way add the application's base URL. On a real project these environment variables are probably added in the CI tools or in the `Dockerfile` if the you use Docker.
 
