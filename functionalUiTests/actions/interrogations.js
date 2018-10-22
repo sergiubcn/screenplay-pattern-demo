@@ -1,9 +1,9 @@
-import postsPageTitle  from '../pageObjects/postsPage';
+import postsPage  from '../pageObjects/postsPage';
 import sideNav from '../pageObjects/sideNav';
 
 export default {
     checkExistenceOfPostsPageTitle() {
-        return postsPageTitle().isExisting();
+        return postsPage.postsPageTitle().isExisting();
     },
 
     checkExistenceOfPostsLinkInSideNav() {

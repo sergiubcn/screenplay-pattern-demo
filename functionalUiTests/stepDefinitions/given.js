@@ -9,10 +9,10 @@ import Subscriber from '../actors/subscriber';
 Given(/^(.*) user with (admin|subscriber) role authenticates into WP-Admin$/, (username, role) => {
     let user;
     if (role === 'admin') {
-        let user = new Admin(username);
+        user = new Admin(username);
         user.login();
     } else if (role === 'subscriber') {
-        let user = new Subscriber(username);
+        user = new Subscriber(username);
         user.login();
     } else {
         throw new Error("The user role does not exist.");

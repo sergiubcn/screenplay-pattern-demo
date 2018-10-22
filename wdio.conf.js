@@ -211,8 +211,12 @@ exports.config = {
      * @param {Array.<Object>} capabilities list of capabilities details
      * @param {Array.<String>} specs List of spec file paths that are to be run
      */
-    //before: function () {
-    //},
+    before: function () {
+        browser.params = this.params;
+        
+        // Any custom commands module needs to be initialized at this level
+        // utils.init();
+    },
     /**
      * Runs before a WebdriverIO command gets executed.
      * @param {String} commandName hook command name
@@ -290,10 +294,25 @@ exports.config = {
      */
     // onComplete: function() {
     // },
+    /** Cucumber specific hooks. */
+    //beforeFeature: function (feature) {
+    //},
+    //beforeScenario: function (scenario) {
+    //},
+    //beforeStep: function (step) {
+    //},
+    //afterStep: function (stepResult) {
+    //},
+    afterScenario: function () {
+        browser.params.scenarioContext.currentUser = {};
+    },
+    //afterFeature: function (feature) {
+    //},
 
+    /** World variables. */
     params: {
         scenarioContext:{
-            currentUser:{}
+            currentUser: {}
         }
     }
 }

@@ -6,3 +6,6 @@ errorShots
 
 # Ignore test logs folder
 testLogs
+
+# VSCode settings
+.vscode

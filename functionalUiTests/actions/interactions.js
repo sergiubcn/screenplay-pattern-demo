@@ -1,5 +1,5 @@
 import loginPage from '../pageObjects/loginPage';
-import { postsLink } from '../pageObjects/sideNav';
+import sideNav from '../pageObjects/sideNav';
 
 /**
  * Possible interactions with the applications.
@@ -22,6 +22,6 @@ export default new class Interactions {
 
     /*** Navigates to the Posts page by clicking the Posts link in the sideNav. */
     navigateToPostsPageViaSideNav() {
-        postsLink().click();
+        sideNav.postsLink().click();
     }
 }
