@@ -1,5 +1,3 @@
-//import 'dotenv';
-
 export default [
     {
         username: "scrplayusr",
