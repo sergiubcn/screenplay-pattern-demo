@@ -27,6 +27,15 @@ export BASE_URL="http://localhost:8888/"`
 
 In a similar way add the application's base URL. On a real project these environment variables are probably added in the CI tools or in the `Dockerfile` if the you use Docker.
 
+## Context variables
+The `Cucumber` specific hooks have been added to the `wdio.conf.js` file. Currently, in the solution, only the `scenario context` is used, but the other ones are ready for use. At the bottom of the config file there is a declaration of the context parameters:
+`params: { scenarioContext: { currentUser: {} } }`
+Furthermore, in order to be accessible at test runtime these are initialised on the browser instance:
+`before: function () {browser.params = this.params; }`
+These objects can now be accessed at runtime. The reset mechanism is implemented in the corresponding hook function:
+`afterScenario: function () { browser.params.scenarioContext.currentUser = {}; }`
+The same can be done for the other contexts.
+
 ## Running tests
 The tests can be executed by running the following command: `npm run test:ui`.
 The script can be tweaked in the `package.json` file.
