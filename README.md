@@ -42,6 +42,35 @@ The same can be done for the other contexts.
 The tests can be executed by running the following command: `npm run test:ui`.
 The script can be tweaked in the `package.json` file.
 
+## Debugging (Visual Studio Code only)
+If the IDE of choice is VSCode then debugging can be done using the built-in NodeJS functionality. The `launch.json` file content should look like this:
+```
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "WDIO",
+            "protocol": "inspector",
+            "runtimeExecutable": "${workspaceRoot}/node_modules/.bin/wdio",
+            "port": 5859,
+            "console": "integratedTerminal",
+            "args": [
+                "--spec",
+                "${relativeFile}"
+                // To run a specific file, you can also do:
+                // "--spec", "specs/testSpec.js"
+              ]
+        }
+    ]
+}
+```
+Debug mode can now be started by pressing `F5`.
+
 ## Further reading
 Keep in mind that this is an interpretation of the Screenplay pattern. A really good explanation can be found in the following blog post: https://dzone.com/articles/page-objects-refactored-solid-steps-to-the-screenp
 
