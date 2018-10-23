@@ -13,7 +13,8 @@
     "webdriverio": "^4.13.2"
   },
   "scripts": {
-    "test:ui": "wdio wdio.conf.js"
+    "test:ui": "wdio wdio.conf.js",
+    "test:ui:dev": "wdio wdio.conf.dev.js"
   },
   "dependencies": {}
 }
