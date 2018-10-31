@@ -43,7 +43,8 @@ The tests can be executed by running the following command: `npm run test:ui`.
 The script can be tweaked in the `package.json` file.
 
 ## Debugging (Visual Studio Code only)
-If the IDE of choice is VSCode then debugging can be done using the built-in NodeJS functionality. The `launch.json` file content should look like this:
+If the IDE of choice is VSCode then debugging can be done using the built-in NodeJS functionality. 
+1. The `launch.json` file content should look like this:
 ```
 {
     // Use IntelliSense to learn about possible attributes.
@@ -60,6 +61,7 @@ If the IDE of choice is VSCode then debugging can be done using the built-in Nod
             "port": 5859,
             "console": "integratedTerminal",
             "args": [
+                "wdio.conf.dev.js",
                 "--spec",
                 "${relativeFile}"
                 // To run a specific file, you can also do:
@@ -69,7 +71,8 @@ If the IDE of choice is VSCode then debugging can be done using the built-in Nod
     ]
 }
 ```
-Debug mode can now be started by pressing `F5`.
+2. Make sure that the feature file which is being run is the active tab in VSCode (this will replace the `${relativeFile}` variable in the launch.json file.);
+3. Debug mode can now be started by pressing `F5`.
 
 ## Further reading
 Keep in mind that this is an interpretation of the Screenplay pattern. A really good explanation can be found in the following blog post: https://dzone.com/articles/page-objects-refactored-solid-steps-to-the-screenp
