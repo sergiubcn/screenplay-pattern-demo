@@ -17,7 +17,7 @@ https://codex.wordpress.org/Installing_WordPress_Locally_on_Your_Mac_With_MAMP
 
 I assume that you already have your favourite IDE installed so the next step would be to clone clone/ fork this repo and then open a terminal `cd` into the repo folder and finally enter the following command: `npm install` this should install all the necessary node modules.
 
-The next step would be to install Chrome browser if its not already installed. Chromedriver is also necessary. This can easily be done with brew: `brew install chromedriver`.
+The next step would be to install Chrome browser if its not already installed. Chromedriver is also necessary. This can easily be done with brew: `brew cask install chromedriver`.
 
 In order to simulate a real life scenario the users's passwords have been added to environment variables. In the `.bash_profile` file add the passwords as variables like in the example below:
 ```
